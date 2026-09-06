@@ -7,8 +7,6 @@ import oshi.software.os.FileSystem;
 import oshi.software.os.OSFileStore;
 import oshi.software.os.OperatingSystem;
 
-import static br.com.oryanps.agent.TelemetryAgentApp.config;
-
 public class TelemetryCollector {
 
     private final SystemInfo systemInfo;
@@ -31,7 +29,7 @@ public class TelemetryCollector {
     public TelemetryData collect() {
         TelemetryData data = new TelemetryData();
 
-        data.setAgentId(config.getAgendId());
+        data.setAgentId("PC-0001");
         data.setHostname(
                 operatingSystem
                         .getNetworkParams().getHostName()

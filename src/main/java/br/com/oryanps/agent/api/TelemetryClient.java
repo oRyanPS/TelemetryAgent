@@ -3,56 +3,100 @@ package br.com.oryanps.agent.api;
 import br.com.oryanps.agent.dto.TelemetryData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.*;
+import java.net.HttpURLConnection;
 import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+
 
 public class TelemetryClient {
-    private final HttpClient client;
     private final ObjectMapper mapper;
-
     private final String apiUrl;
 
-    public TelemetryClient(String apiUrl) {
+    public TelemetryClient(String apiUrl) throws IOException {
         this.apiUrl = apiUrl;
-
-        client = HttpClient.newHttpClient();
-
         mapper = new ObjectMapper();
     }
 
     public void send(TelemetryData data) {
+        HttpURLConnection connection = null;
+
         try {
             String json =
                     mapper.writeValueAsString(data);
 
-            HttpRequest request =
-                    HttpRequest.newBuilder()
-                            .uri(URI.create(
-                                    apiUrl + "/api/telemetry"
-                            ))
-                            .header(
-                                    "Content-Type",
-                                    "application/json"
-                            )
-                            .POST(
-                                    HttpRequest.BodyPublishers
-                                            .ofString(json)
-                            )
-                            .build();
-            HttpResponse<String> response =
-                    client.send(
-                            request,
-                            HttpResponse.BodyHandlers
-                                    .ofString()
-                    );
+            URL url = new URL(apiUrl + "/api/telemetry");
 
-            System.out.println(
-                    "API: " + response.statusCode()
+            connection = (HttpURLConnection) url.openConnection();
+
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty(
+                    "Content-Type",
+                    "application/json"
             );
+
+            connection.setRequestProperty(
+                    "Accept",
+                    "application/json"
+            );
+
+            connection.setDoOutput(true);
+            connection.setDoInput(true);
+
+            OutputStream outputStream = connection.getOutputStream();
+
+            try {
+                outputStream.write(
+                        json.getBytes(StandardCharsets.UTF_8)
+                );
+
+                outputStream.flush();
+            } finally {
+                outputStream.close();
+            }
+
+            int statusCode = connection.getResponseCode();
+            System.out.println("API: "+statusCode);
+
+            InputStream inputStream;
+
+            if(statusCode >= 200 && statusCode <400) {
+                inputStream = connection.getInputStream();
+            } else {
+                inputStream = connection.getErrorStream();
+            }
+
+            if (inputStream != null) {
+                BufferedReader reader = new BufferedReader(
+                        new InputStreamReader(
+                                inputStream,
+                                StandardCharsets.UTF_8
+                        )
+                );
+
+                try {
+                    StringBuilder response = new StringBuilder();
+                    String line;
+
+                    while ((line = reader.readLine()) != null) {
+                        response.append(line);
+                    }
+
+                    System.out.println("Resposta: "+response.toString());
+                } finally {
+                    reader.close();
+                }
+            }
+
         } catch (Exception e) {
+            System.err.println(
+                    "Erro ao enviar telemetria para a API:"
+            );
             e.printStackTrace();
+        } finally {
+            if(connection != null)
+                connection.disconnect();
         }
     }
 
