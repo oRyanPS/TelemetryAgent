@@ -1,12 +1,13 @@
-package br.com.oryanps.agent;
+package br.com.oryanps.agent.dto;
 
-import br.com.oryanps.agent.dto.TelemetryData;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.GlobalMemory;
 import oshi.software.os.FileSystem;
 import oshi.software.os.OSFileStore;
 import oshi.software.os.OperatingSystem;
+
+import static br.com.oryanps.agent.TelemetryAgentApp.config;
 
 public class TelemetryCollector {
 
@@ -30,7 +31,7 @@ public class TelemetryCollector {
     public TelemetryData collect() {
         TelemetryData data = new TelemetryData();
 
-        data.setAgentId("PC-001");
+        data.setAgentId(config.getAgendId());
         data.setHostname(
                 operatingSystem
                         .getNetworkParams().getHostName()

@@ -1,4 +1,4 @@
-package br.com.oryanps.agent;
+package br.com.oryanps.agent.api;
 
 import br.com.oryanps.agent.dto.TelemetryData;
 import com.fasterxml.jackson.databind.ObjectMapper;
