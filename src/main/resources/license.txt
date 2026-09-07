@@ -1,0 +1,94 @@
+# Licença de Uso e Distribuição — mTadata
+
+Copyright (c) 2026 oRyanPS
+
+Todos os direitos reservados, exceto quando expressamente concedidos pelos termos desta licença.
+
+O mTadata Agent é um software disponibilizado publicamente para uso, estudo, modificação e distribuição, sujeito às condições estabelecidas abaixo.
+
+## 1. Permissão de uso
+
+É concedida a qualquer pessoa uma licença gratuita, não exclusiva e mundial para:
+
+* utilizar o software para fins pessoais, educacionais, comerciais ou empresariais;
+* executar o software em qualquer quantidade de dispositivos;
+* estudar seu funcionamento e seu código-fonte;
+* modificar o código-fonte;
+* criar versões modificadas ou derivadas;
+* copiar e redistribuir o software original ou versões modificadas;
+* incorporar partes do software em outros projetos, respeitando as condições desta licença.
+
+## 2. Preservação dos créditos
+
+Ao distribuir, publicar, modificar ou criar uma obra derivada do software, os créditos e avisos de copyright originais do mTadata devem ser preservados.
+
+Não é permitido:
+
+* remover os avisos de copyright existentes;
+* remover ou ocultar os créditos originais do projeto;
+* substituir os créditos originais por créditos que atribuam a autoria do projeto original a terceiros;
+* distribuir uma versão modificada alegando ser o projeto original quando isso puder causar confusão quanto à autoria.
+
+Os créditos originais poderão ser complementados com créditos referentes às modificações realizadas por terceiros, desde que isso não resulte na remoção ou ocultação dos créditos originais.
+
+## 3. Modificações
+
+É permitido modificar o software livremente.
+
+Versões modificadas podem ser distribuídas sob esta mesma licença ou sob outra licença compatível com as condições desta licença, desde que os créditos e avisos de copyright originais sejam preservados.
+
+Recomenda-se que versões modificadas deixem claramente indicado que foram alteradas em relação à versão original.
+
+## 4. Redistribuição
+
+É permitido redistribuir o software gratuitamente ou comercialmente.
+
+A redistribuição não exige autorização prévia dos autores, desde que:
+
+1. esta licença seja incluída na distribuição;
+2. os créditos originais sejam preservados;
+3. os avisos de copyright sejam mantidos;
+4. nenhuma afirmação falsa de autoria seja feita sobre o código original.
+
+## 5. Código-fonte
+
+Quando uma versão modificada for distribuída, recomenda-se disponibilizar o código-fonte correspondente aos usuários da versão modificada.
+
+Esta recomendação não constitui obrigação para o simples uso do software.
+
+## 6. Marca e nome do projeto
+
+A permissão concedida por esta licença não concede automaticamente qualquer direito sobre marcas, logotipos, nomes comerciais ou identidade visual associada ao mTadata.
+
+O nome "mTadata" e seus elementos de identidade visual poderão estar sujeitos a direitos separados.
+
+A criação de uma versão modificada não concede ao distribuidor o direito de apresentá-la como sendo a versão oficial do mTadata.
+
+## 7. Sem garantia
+
+O software é fornecido "NO ESTADO EM QUE SE ENCONTRA", sem qualquer garantia, expressa ou implícita.
+
+Os autores e colaboradores não oferecem garantias quanto à adequação do software a uma finalidade específica, funcionamento contínuo, ausência de erros ou ausência de interrupções.
+
+## 8. Limitação de responsabilidade
+
+Em nenhuma circunstância os autores ou colaboradores serão responsáveis por quaisquer danos diretos, indiretos, incidentais, especiais ou consequenciais decorrentes do uso ou da incapacidade de utilização do software.
+
+## 9. Aceitação
+
+Ao utilizar, modificar ou redistribuir o mTadata Agent, o usuário declara estar de acordo com os termos desta licença.
+
+Caso não concorde com estes termos, não deverá utilizar, modificar ou redistribuir o software.
+
+## 10. Direitos autorais
+
+Os direitos autorais sobre o código original permanecem pertencentes aos seus respectivos autores e colaboradores.
+
+A concessão de permissões nesta licença não implica transferência de propriedade intelectual.
+
+---
+
+Copyright (c) 2026 oRyanPS
+
+mTadata — Telemetry Agent
+Todos os créditos originais devem ser preservados.
