@@ -21,28 +21,10 @@ public class TelemetryAgentApp {
         TelemetryClient telemetryClient =
                 new TelemetryClient(config.getApiUrl());
         System.out.println("mTadata Agent Iniciado");
-
-        System.out.println(
-                "Agent ID: " + config.getAgendId()
-        );
-
-
-        System.out.println("Diretório atual: " + System.getProperty("user.dir"));
-        System.out.println("Java: " + System.getProperty("java.version"));
-        System.out.println("Diretório Java: " + System.getProperty("java.home"));
-        System.out.println(
-                "API URL: " + config.getApiUrl()
-        );
         while (true) {
             try {
                 var telemetry =
                         collector.collect();
-
-                System.out.println(
-                        "CPU: " +
-                                telemetry.getCpuUsage() +
-                                "%"
-                );
 
                 telemetryClient.send(telemetry);
 
