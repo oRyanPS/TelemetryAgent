@@ -5,7 +5,6 @@ import br.com.oryanps.agent.core.enums.TelemetryEndpoint;
 import br.com.oryanps.agent.config.AgentConfig;
 import br.com.oryanps.agent.config.ConfigManager;
 import br.com.oryanps.agent.dto.collectors.FullCollector;
-import br.com.oryanps.agent.dto.collectors.HeartbeatCollector;
 import br.com.oryanps.agent.dto.collectors.TelemetryCollector;
 import lombok.Getter;
 import lombok.var;
@@ -29,6 +28,8 @@ public class TelemetryAgentApp {
         HttpClientImpl httpClient =
                 new HttpClientImpl(config.getApiUrl(), config.getAgendId());
         System.out.println("mTadata Agent Iniciado");
+
+        // TODO: Criar handlers para cada log separado.
         while (true) {
             try {
                 var heartbeat =
