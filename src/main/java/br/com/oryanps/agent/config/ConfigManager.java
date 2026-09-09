@@ -6,8 +6,8 @@ import java.io.File;
 
 public class ConfigManager {
     private static final String CONFIG_DIRECTORY =
-            "C:\\ProgramData\\mTadata";
-
+            "C:\\ProgramData\\mTadata Agent";
+    // TODO: Corrigir criação de yml para json no Executável.
     private static final String CONFIG_FILE =
             CONFIG_DIRECTORY + "\\config.json";
 

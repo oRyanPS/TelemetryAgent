@@ -4,6 +4,7 @@ import br.com.oryanps.agent.api.HttpClientImpl;
 import br.com.oryanps.agent.core.enums.TelemetryEndpoint;
 import br.com.oryanps.agent.config.AgentConfig;
 import br.com.oryanps.agent.config.ConfigManager;
+import br.com.oryanps.agent.dto.collectors.FullCollector;
 import br.com.oryanps.agent.dto.collectors.HeartbeatCollector;
 import br.com.oryanps.agent.dto.collectors.TelemetryCollector;
 import lombok.Getter;
@@ -23,8 +24,8 @@ public class TelemetryAgentApp {
                 configManager.load();
         TelemetryCollector telemetryCollector =
                 new TelemetryCollector();
-        HeartbeatCollector heartbeatCollector =
-                new HeartbeatCollector();
+        FullCollector heartbeatCollector =
+                new FullCollector();
         HttpClientImpl httpClient =
                 new HttpClientImpl(config.getApiUrl(), config.getAgendId());
         System.out.println("mTadata Agent Iniciado");
