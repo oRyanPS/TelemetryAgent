@@ -87,9 +87,11 @@ begin
   ForceDirectories(ConfigDir);
 
   ConfigContent :=
-    'agent:' + #13#10 +
-    '  id: "' + AgentPage.Values[0] + '"' + #13#10 +
-    '  api_url: "' + AgentPage.Values[1] + '"' + #13#10;
+    '{' + #13#10 +
+    '  "agentId": "' + AgentPage.Values[0] + '",' + #13#10 +
+    '  "apiUrl": "' + AgentPage.Values[1] + '",' + #13#10 +
+    '  "telemetryInterval": 0' + #13#10 +
+    '}';
 
   SaveStringToFile(ConfigFile, ConfigContent, False);
 end;
