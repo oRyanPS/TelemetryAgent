@@ -82,7 +82,7 @@ var
   ConfigContent: string;
 begin
   ConfigDir := ExpandConstant('{commonappdata}\mTadata Agent');
-  ConfigFile := ConfigDir + '\config.yml';
+  ConfigFile := ConfigDir + '\config.json';
 
   ForceDirectories(ConfigDir);
 

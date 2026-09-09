@@ -26,7 +26,7 @@ public class TelemetryAgentApp {
         FullCollector heartbeatCollector =
                 new FullCollector();
         HttpClientImpl httpClient =
-                new HttpClientImpl(config.getApiUrl(), config.getAgendId());
+                new HttpClientImpl(config.getApiUrl(), config.getAgentId());
         System.out.println("mTadata Agent Iniciado");
 
         // TODO: Criar handlers para cada log separado.

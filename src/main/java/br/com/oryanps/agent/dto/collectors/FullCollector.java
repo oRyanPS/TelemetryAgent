@@ -36,7 +36,7 @@ public class FullCollector implements ICollector<FullData> {
         FullData data = new FullData();
 
         // Dados Gerais
-        data.setAgentId(config.getAgendId());
+        data.setAgentId(config.getAgentId());
         data.setHostname(operatingSystem.getNetworkParams().getHostName());
         data.setDomainName(operatingSystem.getNetworkParams().getDomainName());
 

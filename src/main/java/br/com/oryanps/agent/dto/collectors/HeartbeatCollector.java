@@ -31,7 +31,7 @@ public class HeartbeatCollector implements ICollector<HeartbeatData> {
     public HeartbeatData collect() {
         HeartbeatData data = new HeartbeatData();
 
-        data.setAgentId(config.getAgendId());
+        data.setAgentId(config.getAgentId());
         data.setSystemUptime(operatingSystem.getSystemUptime());
 
         double cpu = processor.getSystemCpuLoadBetweenTicks(previousCpuTicks) * 100;

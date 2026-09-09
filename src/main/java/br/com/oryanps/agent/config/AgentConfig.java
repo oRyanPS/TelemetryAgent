@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Getter
 public class AgentConfig {
 
-    private String agendId;
+    private String agentId;
     private String apiUrl;
     private long telemetryInterval;
 }
