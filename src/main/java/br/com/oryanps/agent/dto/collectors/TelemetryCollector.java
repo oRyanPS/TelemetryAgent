@@ -1,5 +1,6 @@
-package br.com.oryanps.agent.dto;
+package br.com.oryanps.agent.dto.collectors;
 
+import br.com.oryanps.agent.dto.TelemetryData;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.GlobalMemory;
@@ -62,8 +63,6 @@ public class TelemetryCollector {
 
         data.setTimestamp(System.currentTimeMillis());
 
-
-        System.out.println(data.toString());
         return data;
     }
 
