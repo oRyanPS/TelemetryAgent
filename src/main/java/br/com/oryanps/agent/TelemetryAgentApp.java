@@ -1,8 +1,7 @@
 package br.com.oryanps.agent;
 
 import br.com.oryanps.agent.api.HttpClientImpl;
-import br.com.oryanps.agent.api.TelemetryClient;
-import br.com.oryanps.agent.api.TelemetryEndpoint;
+import br.com.oryanps.agent.core.enums.TelemetryEndpoint;
 import br.com.oryanps.agent.config.AgentConfig;
 import br.com.oryanps.agent.config.ConfigManager;
 import br.com.oryanps.agent.dto.collectors.HeartbeatCollector;
@@ -26,8 +25,6 @@ public class TelemetryAgentApp {
                 new TelemetryCollector();
         HeartbeatCollector heartbeatCollector =
                 new HeartbeatCollector();
-        TelemetryClient telemetryClient =
-                new TelemetryClient(config.getApiUrl());
         HttpClientImpl httpClient =
                 new HttpClientImpl(config.getApiUrl(), config.getAgendId());
         System.out.println("mTadata Agent Iniciado");

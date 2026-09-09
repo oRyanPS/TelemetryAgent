@@ -1,4 +1,4 @@
-package br.com.oryanps.agent.api;
+package br.com.oryanps.agent.core.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

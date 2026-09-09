@@ -1,5 +1,6 @@
 package br.com.oryanps.agent.api;
 
+import br.com.oryanps.agent.core.enums.TelemetryEndpoint;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.OutputStream;

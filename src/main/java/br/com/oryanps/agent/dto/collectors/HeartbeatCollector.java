@@ -1,5 +1,6 @@
 package br.com.oryanps.agent.dto.collectors;
 
+import br.com.oryanps.agent.core.interfaces.ICollector;
 import br.com.oryanps.agent.dto.HeartbeatData;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
@@ -8,7 +9,7 @@ import oshi.software.os.OperatingSystem;
 
 import static br.com.oryanps.agent.TelemetryAgentApp.config;
 
-public class HeartbeatCollector {
+public class HeartbeatCollector implements ICollector<HeartbeatData> {
 
     private final SystemInfo systemInfo;
 

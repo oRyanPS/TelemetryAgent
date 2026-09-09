@@ -1,5 +1,6 @@
 package br.com.oryanps.agent.dto.collectors;
 
+import br.com.oryanps.agent.core.interfaces.ICollector;
 import br.com.oryanps.agent.dto.TelemetryData;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
@@ -8,7 +9,7 @@ import oshi.software.os.FileSystem;
 import oshi.software.os.OSFileStore;
 import oshi.software.os.OperatingSystem;
 
-public class TelemetryCollector {
+public class TelemetryCollector implements ICollector<TelemetryData> {
 
     private final SystemInfo systemInfo;
 
