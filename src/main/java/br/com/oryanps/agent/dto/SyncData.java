@@ -14,7 +14,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class FullData extends TelemetryData implements IData {
+public class SyncData extends TelemetryData implements IData {
     private String agentId;
 
     private String operatingSystem;

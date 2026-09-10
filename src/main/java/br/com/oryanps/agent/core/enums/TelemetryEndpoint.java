@@ -10,7 +10,7 @@ public enum TelemetryEndpoint {
     HEARTBEAT("/v1/telemetry/heartbeat"),
     BATCH("/v1/telemetry/batch"),
     EVENTS("/v1/telemetry/events"),
-    FULL("/v1/telemetry/full");
+    SYNC("/v1/telemetry/sync");
 
     private final String path;
 }

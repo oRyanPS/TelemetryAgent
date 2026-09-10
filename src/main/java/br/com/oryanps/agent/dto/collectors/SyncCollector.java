@@ -1,8 +1,7 @@
 package br.com.oryanps.agent.dto.collectors;
 
 import br.com.oryanps.agent.core.interfaces.ICollector;
-import br.com.oryanps.agent.dto.FullData;
-import lombok.AllArgsConstructor;
+import br.com.oryanps.agent.dto.SyncData;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.GlobalMemory;
@@ -12,7 +11,7 @@ import oshi.software.os.OperatingSystem;
 
 import static br.com.oryanps.agent.TelemetryAgentApp.config;
 
-public class FullCollector implements ICollector<FullData> {
+public class SyncCollector implements ICollector<SyncData> {
 
     private final SystemInfo systemInfo;
 
@@ -22,7 +21,7 @@ public class FullCollector implements ICollector<FullData> {
 
     private long[] previousCpuTicks;
 
-    public FullCollector() {
+    public SyncCollector() {
         systemInfo = new SystemInfo();
 
         processor = systemInfo.getHardware().getProcessor();
@@ -32,8 +31,8 @@ public class FullCollector implements ICollector<FullData> {
     }
 
     @Override
-    public FullData collect() {
-        FullData data = new FullData();
+    public SyncData collect() {
+        SyncData data = new SyncData();
 
         // Dados Gerais
         data.setAgentId(config.getAgentId());
