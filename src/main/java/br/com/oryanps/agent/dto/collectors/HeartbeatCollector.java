@@ -37,6 +37,8 @@ public class HeartbeatCollector implements ICollector<HeartbeatData> {
         double cpu = processor.getSystemCpuLoadBetweenTicks(previousCpuTicks) * 100;
         previousCpuTicks = processor.getSystemCpuLoadTicks();
         data.setCpuUsage(cpu);
+        data.setCpuTemperature(systemInfo.getHardware().getSensors().getCpuTemperature());
+        data.setCpuTemperature(systemInfo.getHardware().getSensors().getCpuVoltage());
 
         data.setRamTotal(memory.getTotal());
         data.setRamUsed(memory.getTotal() - memory.getAvailable());

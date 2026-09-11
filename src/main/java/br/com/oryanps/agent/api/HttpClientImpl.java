@@ -11,6 +11,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import static br.com.oryanps.agent.TelemetryAgentApp.logger;
+
 public class HttpClientImpl {
 
     private final String baseUrl;
@@ -29,9 +31,8 @@ public class HttpClientImpl {
      * Envia assincronamente telemetria para os endpoints.
      *
      * @param endpoint Enum referente ao caminho da rota
-     * @param payload Objeto com dados de telemetria
-     * @param <T> DTO
-     * @return CompletableFuture contendo o código HTTP de retorno.
+     * @param payload  Objeto com dados de telemetria
+     * @param <T>      DTO
      */
 
     public <T> CompletableFuture<Integer> send(TelemetryEndpoint endpoint, T payload) {
@@ -44,6 +45,7 @@ public class HttpClientImpl {
                 String jsonBody = objectMapper.writeValueAsString(payload);
 
                 URL url = new URL(baseUrl+endpoint.getPath());
+                logger.info(String.format("Sending request to %s on agent %s", baseUrl, agentId));
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("POST");
                 connection.setRequestProperty(
@@ -64,6 +66,7 @@ public class HttpClientImpl {
                 }
 
                 int responseCode = connection.getResponseCode();
+                logger.info(String.format("Received response from agent %s", endpoint));
                 future.complete(responseCode);
             } catch (Exception e) {
                 future.completeExceptionally(e);
@@ -73,7 +76,6 @@ public class HttpClientImpl {
                 }
             }
         });
-
         return future;
     }
 

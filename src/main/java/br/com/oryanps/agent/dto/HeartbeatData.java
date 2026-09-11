@@ -10,6 +10,9 @@ public class HeartbeatData {
     private long systemUptime;
 
     private double cpuUsage;
+    private double cpuTemperature;
+    private double cpuVoltage;
+
     private long ramTotal;
     private long ramUsed;
 
