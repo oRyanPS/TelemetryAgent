@@ -19,27 +19,16 @@ public class HeartbeatService implements IService {
     public void run() {
 
         logger.info("Starting HeartbeatService...");
+        HeartbeatCollector heartbeat =
+                new HeartbeatCollector();
 
         executorService.scheduleAtFixedRate(() -> {
 
             try {
-
-                logger.info("Collecting heartbeat...");
-
-                HeartbeatCollector heartbeat =
-                        new HeartbeatCollector();
-
-                logger.info("Sending heartbeat...");
-
                 httpClient.send(
                         TelemetryEndpoint.HEARTBEAT,
                         heartbeat.collect()
                 ).thenAccept(responseCode -> {
-
-                    logger.info(
-                            "Heartbeat response: HTTP "
-                                    + responseCode
-                    );
 
                 }).exceptionally(error -> {
 

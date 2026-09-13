@@ -15,11 +15,12 @@ public class SyncService implements IService {
     private final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
 
     public void run() {
+        logger.info("Starting SyncService...");
+        SyncCollector collector = new SyncCollector();
         executorService.scheduleAtFixedRate(() -> {
             try {
-                SyncCollector collector = new SyncCollector();
+
                 httpClient.send(TelemetryEndpoint.SYNC, collector.collect());
-                logger.info("SYNC");
             } catch (Exception e) {
                 e.printStackTrace();
             }

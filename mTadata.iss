@@ -33,7 +33,7 @@ ArchitecturesInstallIn64BitMode=x64compatible
 ;SetupArchitecture=x64
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
-LicenseFile=E:\Arquivos\Workspace\TelemetryAgent\src\main\resources\license.txt
+LicenseFile=E:\Arquivos\Workspace\TelemetryAgent\license.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 ;PrivilegesRequired=lowest
 OutputBaseFilename=mTadataAgent
@@ -45,9 +45,9 @@ WizardStyle=modern dynamic
 Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
 
 [Files]
-Source: "E:\Arquivos\Workspace\TelemetryAgent\src\main\resources\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\Arquivos\Workspace\TelemetryAgent\\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "E:\Arquivos\Workspace\TelemetryAgent\build\libs\TelemetryAgent.jar"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Arquivos\Workspace\TelemetryAgent\src\main\resources\m-tadata-agent.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\Arquivos\Workspace\TelemetryAgent\m-tadata-agent.xml"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files.
 
 [Code]
@@ -71,7 +71,7 @@ begin
   AgentPage.Add('API URL:', False);
 
   AgentPage.Values[0] := 'PC-001';
-  AgentPage.Values[1] := 'https://mtadata.com.br';
+  AgentPage.Values[1] := 'https://mtadata.com.br/api';
 
 end;
 

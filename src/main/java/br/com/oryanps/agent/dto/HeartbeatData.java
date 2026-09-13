@@ -9,9 +9,10 @@ public class HeartbeatData {
     private String agentId;
     private long systemUptime;
 
-    private double cpuUsage;
-    private double cpuTemperature;
-    private double cpuVoltage;
+    private Double cpuUsage;
+    private Double cpuTemperature;
+    private Double cpuVoltage;
+    private int[] cpuFanSpeed;
 
     private long ramTotal;
     private long ramUsed;
