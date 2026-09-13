@@ -14,23 +14,30 @@ import java.util.List;
 
 @Getter
 @Setter
-public class SyncData extends TelemetryData implements IData {
+public class SyncData implements IData {
     private String agentId;
 
-    private String operatingSystem;
-    private long systemUptime;
-    private String hostname;
     private String domainName;
+    private String hostname;
 
-
-    private String cpuName;
-    private List<PhysicalMemory> physicalMemoryList;
-    private List<HWDiskStore> physicalDisks;
-
-
-    private List<NetworkIF> networkIFList;
+    private String operatingSystem;
     private List<OSService> serviceList;
     private List<ApplicationInfo> applicationInfoList;
+    private long systemUptime;
+
+    private String cpuName;
+    private double cpuUsage;
+
+    private List<PhysicalMemory> physicalMemoryList;
+    private long ramTotal;
+    private long ramUsed;
+
+    private List<HWDiskStore> physicalDisks;
+    private long diskTotal;
+    private long diskUsed;
+
+    private List<NetworkIF> networkIFList;
     private List<UsbDevice> usbDevices;
 
+    private long timestamp;
 }
