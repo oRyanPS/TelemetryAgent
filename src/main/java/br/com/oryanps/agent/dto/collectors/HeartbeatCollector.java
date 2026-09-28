@@ -46,8 +46,11 @@ public class HeartbeatCollector implements ICollector<HeartbeatData> {
         data.setCpuVoltage(
                 sensors.getCpuVoltage() > 0 ? sensors.getCpuVoltage() : null
         );
+        int[] fanSpeeds = sensors.getFanSpeeds();
         data.setCpuFanSpeed(
-                sensors.getFanSpeeds()[0] > 0 ? sensors.getFanSpeeds() : null
+                fanSpeeds.length > 0 && fanSpeeds[0] > 0
+                        ? fanSpeeds
+                        : null
         );
 
         data.setRamTotal(memory.getTotal());
