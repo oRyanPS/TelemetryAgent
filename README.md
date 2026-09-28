@@ -183,11 +183,9 @@ Exemplo de estrutura:
 ```json
 {
   "agentId": "home/PC-001",
-  "operatingSystem": "Microsoft Windows 11 Pro",
-  "systemUptime": 123456,
-  "hostname": "Liam-PC",
-  "domainName": "WORKGROUP",
-  "cpuName": "Intel(R) Core(TM) i7...",
+  "domainName": "DESKTOP-I432PTM",
+  "hostname": "DESKTOP-I432PTM",
+  "cpuName": "Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz",
   "physicalMemoryList": [
     {
       "bankLabel": "BANK 0",
@@ -199,38 +197,41 @@ Exemplo de estrutura:
       "serialNumber": "00000000"
     }
   ],
+  "ramTotal": 8589934592,
   "physicalDisks": [
     {
-      "name": "C:",
-      "model": "SSD...",
-      "serial": "NB1111111111",
-      "size": 512105932800,
-      "reads": 1022768,
-      "readBytes": 35071070208,
-      "writes": 1124605,
-      "writeBytes": 19580055040,
+      "name": "\\\\.\\PHYSICALDRIVE0",
+      "model": "Bestoss S201 240GB (Unidades de disco padrão)",
+      "serial": "UBS201250401N0443",
+      "size": 240054796800,
+      "reads": 528923,
+      "readBytes": 17744399360,
+      "writes": 524245,
+      "writeBytes": 17546531840,
       "currentQueueLength": 0,
-      "transferTime": 3655523,
-      "timeStamp": 1788920766669,
+      "transferTime": 9354194,
+      "timeStamp": 1790553455290,
       "partitions": [
         {
-          "identification": "Disco #1, Partição #1",
+          "identification": "Disco #0, Partição #0",
           "name": "GPT: Basic Data",
           "type": "GPT: dados Básicos",
-          "uuid": "684b2fb7-e3bb-4852-919c-e3d45ec4add2",
-          "label": "1 - SSD SATA III (500GB)",
-          "size": 511139905536,
-          "major": 1,
-          "minor": 1,
+          "uuid": "6308dcc0-1078-442d-8492-a68a0c1cdcef",
+          "label": "",
+          "size": 238942158848,
+          "major": 0,
+          "minor": 0,
           "mountPoint": "C:\\"
         }
       ]
     }
   ],
+  "diskTotal": 240054796800,
+  "diskUsed": 17546531840,
   "networkIFList": [
     {
-      "name": "Ethernet",
-      "displayName": "Intel(R) Ethernet...",
+      "name": "eth6",
+      "displayName": "Realtek PCIe GbE Family Controller #2",
       "index": 15,
       "mtu": 1492,
       "subnetMasks": [
@@ -259,14 +260,26 @@ Exemplo de estrutura:
       "ipv4addr": [
         "192.168.0.2"
       ],
-      "macaddr": "...",
       "ipv6addr": [
-        "...",
-        "...6"
+        "9119:b480:6dd8:16ad:a4c2:8730:3185:fc8e",
+        "bcf2:437d:5424:beff:c2f7:d34e:7a90:fd25"
       ],
+      "macaddr": "e3:36:59:51:7f:a0",
       "knownVmMacAddr": false
     }
   ],
+  "usbDevices": [
+    {
+      "name": "Intel(R) USB 3.0 eXtensible Host Controller - 1.0 (Microsoft)",
+      "vendor": "Generic USB xHCI Host Controller",
+      "vendorId": "0x8086",
+      "productId": "0xa12f",
+      "serialNumber": null,
+      "uniqueDeviceId": "PCI\\VEN_8086&DEV_A12F&SUBSYS_86941043&REV_31\\3&11583659&0&A0",
+      "connectedDevices": []
+    }
+  ],
+  "operatingSystem": "Microsoft Windows 11 build 26200",
   "serviceList": [
     {
       "name": "Spooler",
@@ -286,17 +299,7 @@ Exemplo de estrutura:
       }
     }
   ],
-  "usbDevices": [
-    {
-      "name": "Intel(R) USB 3.0 eXtensible Host Controller - 1.0 (Microsoft)",
-      "vendor": "Generic USB xHCI Host Controller",
-      "vendorId": "0x8086",
-      "productId": "0xa12f",
-      "serialNumber": null,
-      "uniqueDeviceId": "PCI\\VEN_8086&DEV_A12F&SUBSYS_86941043&REV_31\\3&11583659&0&A0",
-      "connectedDevices": []
-    }
-  ],
+  "systemUptime": 31322,
   "timestamp": 1789267080032
 }
 ```

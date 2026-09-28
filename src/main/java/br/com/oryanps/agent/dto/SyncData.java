@@ -20,17 +20,10 @@ public class SyncData implements IData {
     private String domainName;
     private String hostname;
 
-    private String operatingSystem;
-    private List<OSService> serviceList;
-    private List<ApplicationInfo> applicationInfoList;
-    private long systemUptime;
-
     private String cpuName;
-    private double cpuUsage;
 
     private List<PhysicalMemory> physicalMemoryList;
     private long ramTotal;
-    private long ramUsed;
 
     private List<HWDiskStore> physicalDisks;
     private long diskTotal;
@@ -38,6 +31,11 @@ public class SyncData implements IData {
 
     private List<NetworkIF> networkIFList;
     private List<UsbDevice> usbDevices;
+
+    private String operatingSystem;
+    private List<OSService> serviceList;
+    private List<ApplicationInfo> applicationInfoList;
+    private long systemUptime;
 
     private long timestamp;
 }

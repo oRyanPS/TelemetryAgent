@@ -19,15 +19,12 @@ public class SyncCollector implements ICollector<SyncData> {
     private final GlobalMemory memory;
     private final OperatingSystem operatingSystem;
 
-    private long[] previousCpuTicks;
-
     public SyncCollector() {
         systemInfo = new SystemInfo();
 
         processor = systemInfo.getHardware().getProcessor();
         memory = systemInfo.getHardware().getMemory();
         operatingSystem = systemInfo.getOperatingSystem();
-        previousCpuTicks = processor.getSystemCpuLoadTicks();
     }
 
     @Override
@@ -39,6 +36,13 @@ public class SyncCollector implements ICollector<SyncData> {
         data.setHostname(operatingSystem.getNetworkParams().getHostName());
         data.setDomainName(operatingSystem.getNetworkParams().getDomainName());
 
+        // ‘Hardware’
+        // Verificação de CPU.
+        data.setCpuName(processor.getProcessorIdentifier().getName());
+
+        // Verificação de RAM.
+        data.setPhysicalMemoryList(memory.getPhysicalMemory());
+        data.setRamTotal(memory.getTotal());
 
         // Verificação de Discos de armazenamento.
         data.setPhysicalDisks(systemInfo.getHardware().getDiskStores());
@@ -54,28 +58,17 @@ public class SyncCollector implements ICollector<SyncData> {
         data.setDiskTotal(total);
         data.setDiskUsed(total - usable);
 
-        // Verificação de CPU.
-        data.setCpuName(processor.getProcessorIdentifier().getName());
-        double cpu = processor.getSystemCpuLoadBetweenTicks(previousCpuTicks) * 100;
-        previousCpuTicks = processor.getSystemCpuLoadTicks();
-        data.setCpuUsage(cpu);
+        // Dados de USB.
+        data.setUsbDevices(systemInfo.getHardware().getUsbDevices(true));
 
-        // Verificação de RAM.
-        data.setPhysicalMemoryList(memory.getPhysicalMemory());
-        data.setRamTotal(memory.getTotal());
-        data.setRamUsed(memory.getTotal() - memory.getAvailable());
+        // Dados de Rede.
+        data.setNetworkIFList(systemInfo.getHardware().getNetworkIFs());
 
         // Dados do S.O.
         data.setOperatingSystem(operatingSystem.toString());
         data.setSystemUptime(operatingSystem.getSystemUptime());
         data.setServiceList(operatingSystem.getServices());
         data.setApplicationInfoList(operatingSystem.getInstalledApplications());
-
-        // Dados de Hardware USB.
-        data.setUsbDevices(systemInfo.getHardware().getUsbDevices(true));
-
-        // Dados de Rede.
-        data.setNetworkIFList(systemInfo.getHardware().getNetworkIFs());
 
         data.setTimestamp(System.currentTimeMillis());
         return data;
